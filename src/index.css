@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
-.container{
-    width: 1320px;
-    margin: 0 auto;
-}
-
 @theme {
   --font-Lato: "Lato", sans-serif ;
+  --color-BlackTextColor: #1B1B1B;
+  --color-BodyText: #7B7B7B;
+  --color-Primary01: #06C279;
+  --color-BackgroundColor01: #EEFFF9;
 }
