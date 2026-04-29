@@ -7,3 +7,6 @@
   --color-Primary01: #06C279;
   --color-BackgroundColor01: #EEFFF9;
 }
+.service-item:hover .icon path {
+  fill: #fff;
+}

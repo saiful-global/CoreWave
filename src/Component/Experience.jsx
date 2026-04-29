@@ -14,7 +14,7 @@ const Experience = () => {
             <a className='px-6.25 py-[14.5px] bg-[#DAF6EB] text-Primary01 rounded-[5px] font-Lato font-semibold text-[16px] hover:shadow-2xl transition duration-300' href="">Learn More</a>
           </div>
           <div>
-            <img src={BannerImage2} alt="" />
+            <img className='rounded-b-[50px] rounded-tl-[50px]' src={BannerImage2} alt="" />
           </div>
         </div>
       </Container>
