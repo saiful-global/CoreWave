@@ -9,7 +9,7 @@ const services = () => {
             <div className='flex justify-between items-center'>
                 <div className='flex gap-10'>
                     <div>
-                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-Primary01 group mb-10 mt-33.25'>
+                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-[#7AE0B9] group mb-10 mt-33.25'>
                             <div className='pb-3.5 icon'>
                                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_26_53)">
@@ -32,7 +32,7 @@ const services = () => {
                             <h3 className='pb-3.5 font-Lato font-semibold text-[20px] leading-7.5 text-BlackTextColor group-hover:text-white'>Web Development</h3>
                             <p className='max-w-66.25 font-Lato font-normal text-[16px] leading-6 text-BodyText group-hover:text-white'>Web development is the art of creating engaging and visually appealing websites</p>
                         </div>
-                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-Primary01 group'>
+                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-[#7AE0B9] group'>
                             <div className='pb-3.5 icon'>
                                 <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_13)">
@@ -63,7 +63,7 @@ const services = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='bg-white shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] service-item rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-Primary01 group mb-10'>
+                        <div className='bg-white shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] service-item rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-[#7AE0B9] group mb-10'>
                             <div className='pb-3.5 icon'>
                                 <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_55)">
@@ -104,7 +104,7 @@ const services = () => {
                             <h3 className='pb-3.5 font-Lato font-semibold text-[20px] leading-7.5 text-BlackTextColor group-hover:text-white'>UI/UX Analysis</h3>
                             <p className='max-w-66.25 font-Lato font-normal text-[16px] leading-6 text-BodyText group-hover:text-white'>Web development is the art of creating engaging and visually appealing websites</p>
                         </div>
-                        <div className='bg-white shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] service-item rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-Primary01 group'>
+                        <div className='bg-white shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] service-item rounded-[10px] pb-15 pl-11.75 pt-10.5 duration-200 hover:bg-[#7AE0B9] group'>
                             <div className='pb-3.5 icon'>
                                 <svg width="70" height="73" viewBox="0 0 70 73" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_9)">

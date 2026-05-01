@@ -7,6 +7,7 @@ import Project from './Component/Project'
 import Take from './Component/Take'
 import ClientsSaying from './Component/ClientsSaying'
 import DontWorries from './Component/DontWorries'
+import Footer from './Component/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
     <Take></Take>
     <ClientsSaying></ClientsSaying>
     <DontWorries></DontWorries>
+    <Footer></Footer>
     </>
   )
 }

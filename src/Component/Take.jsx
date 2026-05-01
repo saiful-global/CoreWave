@@ -16,7 +16,7 @@ const Take = () => {
                 </div>
                 <div className='flex gap-10'>
                     <div>
-                        <div className='service-item mb-10 shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-Primary01 group flex flex-col justify-center items-center '>
+                        <div className='service-item mb-10 shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-[#7AE0B9] group flex flex-col justify-center items-center '>
                             <div className='pb-2.5 icon'>
                                 <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_127)">
@@ -41,7 +41,7 @@ const Take = () => {
                             <h3 className='pb-1.25 font-Lato font-semibold text-[20px] leading-7.5 text-BlackTextColor group-hover:text-white'>Project Done</h3>
                             <p className='font-Lato font-semibold text-[30px] leading-7.5 text-BlackTextColor group-hover:text-white'>1200+</p>
                         </div>
-                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-Primary01 group flex flex-col justify-center items-center '>
+                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-[#7AE0B9] group flex flex-col justify-center items-center '>
                             <div className='pb-2.5 icon'>
                                 <svg width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_196)">
@@ -61,7 +61,7 @@ const Take = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] mt-23.75 mb-10 bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-Primary01 group flex flex-col justify-center items-center '>
+                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] mt-23.75 mb-10 bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-[#7AE0B9] group flex flex-col justify-center items-center '>
                             <div className='pb-2.5 icon'>
                                 <svg width="80" height="71" viewBox="0 0 80 71" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_200)">
@@ -77,7 +77,7 @@ const Take = () => {
                             <h3 className='pb-1.25 font-Lato font-semibold text-[20px] leading-7.5 text-BlackTextColor group-hover:text-white'>Running Work</h3>
                             <p className='font-Lato font-semibold text-[30px] leading-7.5 text-BlackTextColor group-hover:text-white'>120+</p>
                         </div>
-                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-Primary01 group flex flex-col justify-center items-center '>
+                        <div className='service-item shadow-[0px_0px_20px_2px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-9.75 pl-17 pr-17 pt-10 duration-200 hover:bg-[#7AE0B9] group flex flex-col justify-center items-center '>
                             <div className='pb-2.5 icon'>
                                 <svg width="63" height="86" viewBox="0 0 63 86" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_30_191)">
