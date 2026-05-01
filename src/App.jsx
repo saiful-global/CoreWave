@@ -6,6 +6,7 @@ import Services from './Component/Services'
 import Project from './Component/Project'
 import Take from './Component/Take'
 import ClientsSaying from './Component/ClientsSaying'
+import DontWorries from './Component/DontWorries'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
     <Project></Project>
     <Take></Take>
     <ClientsSaying></ClientsSaying>
+    <DontWorries></DontWorries>
     </>
   )
 }
