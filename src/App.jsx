@@ -8,6 +8,7 @@ import Take from './Component/Take'
 import ClientsSaying from './Component/ClientsSaying'
 import DontWorries from './Component/DontWorries'
 import Footer from './Component/Footer'
+import ScrollToTop from './Component/ui/ScrollToTop'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
     <ClientsSaying></ClientsSaying>
     <DontWorries></DontWorries>
     <Footer></Footer>
+    <ScrollToTop></ScrollToTop>
     </>
   )
 }

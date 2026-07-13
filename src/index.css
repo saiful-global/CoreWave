@@ -11,7 +11,7 @@
   fill: #fff;
 }
 .slick-dots li.slick-active div {
-    background-color: #06C279;  /* আপনার brand color */
+    background-color: #06C279;  /* brand color */
 }
 .slick-center circle {
     fill: #06C279;
