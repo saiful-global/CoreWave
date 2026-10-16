@@ -4,7 +4,7 @@ import Container from './ui/Container'
 const Header = () => {
   return (
     <>
-    <section className='bg-BackgroundColor01'>
+    <section className='bg-BackgroundColor01 hidden md:block'>
         <Container>
             <div className='flex justify-between items-center pt-6.5'>
                 <div className='flex gap-104'>
