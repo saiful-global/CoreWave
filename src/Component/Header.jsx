@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
 import Logo from '../assets/Logo.png'
 import Container from './ui/Container'
@@ -10,6 +10,32 @@ const Header = () => {
   // Controls whether the mobile/tablet dropdown menu is open or closed.
   const [open, setOpen] = useState(false)
 
+  // Points to the whole header section (logo, hamburger button and dropdown menu).
+  // We use it to check whether a click happened inside or outside the header.
+  const headerRef = useRef(null)
+
+  // Close the menu when the user clicks/taps anywhere outside the header.
+  useEffect(() => {
+    // Nothing to listen for while the menu is closed.
+    if (!open) return
+
+    const handleOutsideClick = (event) => {
+      // If the click target is NOT inside the header, close the menu.
+      // Clicks on the hamburger button or menu items are inside the header,
+      // so they are handled by their own onClick handlers instead.
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setOpen(false)
+      }
+    }
+
+    // "pointerdown" covers both mouse clicks and touch taps with a single listener.
+    document.addEventListener('pointerdown', handleOutsideClick)
+
+    // Cleanup: remove the listener when the menu closes or the component unmounts,
+    // so listeners never pile up and nothing leaks.
+    return () => document.removeEventListener('pointerdown', handleOutsideClick)
+  }, [open])
+
   return (
     <>
     {/*
@@ -17,7 +43,7 @@ const Header = () => {
       so it positions itself against this section.
       "z-50" keeps the dropdown above the Banner section that comes after the header.
     */}
-    <section className='relative z-50 bg-BackgroundColor01'>
+    <section ref={headerRef} className='relative z-50 bg-BackgroundColor01'>
         <Container>
             <div className='flex justify-between items-center pt-5 pb-4 lg:pt-6.5 lg:pb-0'>
                 {/*
