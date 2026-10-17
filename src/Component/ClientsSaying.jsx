@@ -17,6 +17,16 @@ const ClientsSaying = () => {
     className: "center",
     centerPadding: "0px",
     speed: 500,
+    // Autoplay: the slider moves to the next testimonial by itself every 3 seconds.
+    autoplay: true,
+    autoplaySpeed: 3000,
+    // Pause while the mouse is over the slider (or a dot), so people can read a card in peace.
+    pauseOnHover: true,
+    pauseOnDotsHover: true,
+    // The default slick arrows sit 25px OUTSIDE the slider. They are white (invisible on your white
+    // background) but on mobile they stick out of the screen and can cause sideways scrolling,
+    // and they block taps near the card edges. use dots for navigation, so they are turned off.
+    arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     appendDots: dots => (
@@ -29,24 +39,48 @@ const ClientsSaying = () => {
     customPaging: i => (
         <div className='w-8.75 h-2.5 bg-gray-300 rounded-full'>
         </div>
-    )
+    ),
+    // Responsive settings. react-slick breakpoints use "max-width": a setting applies
+    // when the screen is that wide OR NARROWER, and the smaller breakpoint wins.
+    // - Above 1279px: the settings above are used (3 slides, centered).
+    // - 768px - 1279px: 2 slides. A card needs about 340px+ to look right, so 3 do not fit.
+    //   centerMode is off because it works best with an odd number of slides.
+    // - 767px and below: 1 slide. centerMode stays on so the visible card still gets the
+    //   "slick-center" class, which your index.css uses to color the quote icon green.
+    responsive: [
+        {
+            breakpoint: 1279,
+            settings: {
+                slidesToShow: 2,
+                centerMode: false,
+            },
+        },
+        {
+            breakpoint: 767,
+            settings: {
+                slidesToShow: 1,
+                centerMode: true,
+            },
+        },
+    ]
   };
 
   return (
     <>
-    <section className='pt-23.5 pb-25'>
+    {/* Bottom padding is bigger on small screens because the dots sit 46px below the slider (see appendDots) */}
+    <section className='pt-14 pb-20 sm:pt-16 lg:pt-23.5 lg:pb-25'>
         <Container>
-            <h2 className='pb-12 font-Lato font-semibold text-[45px] leading-13.5 text-BlackTextColor text-center capitalize'>What our clients saying</h2>
+            <h2 className='pb-8 lg:pb-12 font-Lato font-semibold text-[28px] leading-9 sm:text-[38px] sm:leading-12 xl:text-[45px] xl:leading-13.5 text-BlackTextColor text-center capitalize'>What our clients saying</h2>
             <Slider {...settings}>
                 <div className='px-3'>
-                    <div className='mb-10 shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-11 px-14.25 pt-11.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
+                    <div className='mb-10 w-full max-w-md mx-auto md:max-w-none shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-8 px-6 pt-8 sm:px-8 sm:pt-11.25 sm:pb-11 xl:px-14.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
                         {/* Clients Image  */}
                         <div className='pb-3.75 relative'>
-                            <img className='w-37 h-37 rounded-full' src={ClientSayingImage} alt="" />
+                            <img className='w-28 h-28 sm:w-37 sm:h-37 rounded-full' src={ClientSayingImage} alt="Farhan Rio" />
                             <div className='absolute top-6 -left-3.5'>
                                 <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="21.5" cy="21.5" r="21.5" fill="#343434"/>
-                                <g clip-path="url(#clip0_4478_26)">
+                                <g clipPath="url(#clip0_4478_26)">
                                 <path d="M25.3061 21.7562C27.1012 20.8317 29.7957 21.4903 31.0727 23.1368C32.3141 24.7358 32.3489 26.8825 31.2404 28.699C29.9584 30.7999 27.5372 30.9574 25.9487 30.4739C24.0398 29.892 22.9139 28.4923 22.2621 26.7132C21.3437 24.2056 21.5662 21.7054 22.6639 19.2953C23.8912 16.5992 25.9354 14.6659 28.4713 13.2203C28.7943 13.0361 29.1364 12.8869 29.4585 12.701C29.6354 12.5984 29.7184 12.6509 29.8189 12.8043C30.1095 13.2462 30.4051 13.6847 30.7198 14.109C30.8552 14.2916 30.8269 14.3616 30.6368 14.4683C29.2227 15.2611 27.9681 16.2474 26.9858 17.5562C26.0517 18.8017 25.5095 20.2048 25.3052 21.7571L25.3061 21.7562Z" fill="white"/>
                                 <path d="M13.7271 21.751C15.7025 20.7072 19.3485 21.5576 20.2751 24.6921C20.9718 27.0489 19.5511 29.9701 17.1605 30.527C15.1304 31.0005 13.3676 30.4995 11.9693 28.9122C10.4498 27.1881 9.98648 25.1182 10.1484 22.8848C10.3933 19.5051 12.0781 16.9024 14.599 14.7757C15.5929 13.937 16.6922 13.2609 17.8622 12.6982C18.0199 12.6223 18.1013 12.6207 18.2051 12.7824C18.4974 13.2351 18.8004 13.6819 19.1234 14.1129C19.2654 14.303 19.2164 14.3664 19.0346 14.4689C17.6006 15.2717 16.3352 16.2763 15.3471 17.6076C14.4711 18.789 13.9546 20.1187 13.728 21.5676C13.7188 21.6259 13.7271 21.6859 13.7271 21.751Z" fill="white"/>
                                 </g>
@@ -58,7 +92,7 @@ const ClientsSaying = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h3 className='pb-1 font-Lato font-semibold text-[24px] leading-7.5 text-BlackTextColor'>Excellent Team!</h3>
+                        <h3 className='pb-1 font-Lato font-semibold text-[20px] sm:text-[24px] leading-7.5 text-center text-BlackTextColor'>Excellent Team!</h3>
                         {/* Star icon svg  */}
                         <div className='flex gap-1.25 pb-5'>
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,14 +117,14 @@ const ClientsSaying = () => {
                     </div>
                 </div>
                 <div className='px-3'>
-                    <div className='mb-10 shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-11 px-14.25 pt-11.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
+                    <div className='mb-10 w-full max-w-md mx-auto md:max-w-none shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-8 px-6 pt-8 sm:px-8 sm:pt-11.25 sm:pb-11 xl:px-14.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
                         {/* Clients Image  */}
                         <div className='pb-3.75 relative'>
-                            <img className='w-37 h-37 rounded-full' src={ClientSayingImage2} alt="" />
+                            <img className='w-28 h-28 sm:w-37 sm:h-37 rounded-full' src={ClientSayingImage2} alt="Alizabeth Nancy" />
                             <div className='absolute top-6 -left-3.5'>
                                 <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="21.5" cy="21.5" r="21.5" fill="#343434"/>
-                                <g clip-path="url(#clip0_4478_26)">
+                                <g clipPath="url(#clip0_4478_26)">
                                 <path d="M25.3061 21.7562C27.1012 20.8317 29.7957 21.4903 31.0727 23.1368C32.3141 24.7358 32.3489 26.8825 31.2404 28.699C29.9584 30.7999 27.5372 30.9574 25.9487 30.4739C24.0398 29.892 22.9139 28.4923 22.2621 26.7132C21.3437 24.2056 21.5662 21.7054 22.6639 19.2953C23.8912 16.5992 25.9354 14.6659 28.4713 13.2203C28.7943 13.0361 29.1364 12.8869 29.4585 12.701C29.6354 12.5984 29.7184 12.6509 29.8189 12.8043C30.1095 13.2462 30.4051 13.6847 30.7198 14.109C30.8552 14.2916 30.8269 14.3616 30.6368 14.4683C29.2227 15.2611 27.9681 16.2474 26.9858 17.5562C26.0517 18.8017 25.5095 20.2048 25.3052 21.7571L25.3061 21.7562Z" fill="white"/>
                                 <path d="M13.7271 21.751C15.7025 20.7072 19.3485 21.5576 20.2751 24.6921C20.9718 27.0489 19.5511 29.9701 17.1605 30.527C15.1304 31.0005 13.3676 30.4995 11.9693 28.9122C10.4498 27.1881 9.98648 25.1182 10.1484 22.8848C10.3933 19.5051 12.0781 16.9024 14.599 14.7757C15.5929 13.937 16.6922 13.2609 17.8622 12.6982C18.0199 12.6223 18.1013 12.6207 18.2051 12.7824C18.4974 13.2351 18.8004 13.6819 19.1234 14.1129C19.2654 14.303 19.2164 14.3664 19.0346 14.4689C17.6006 15.2717 16.3352 16.2763 15.3471 17.6076C14.4711 18.789 13.9546 20.1187 13.728 21.5676C13.7188 21.6259 13.7271 21.6859 13.7271 21.751Z" fill="white"/>
                                 </g>
@@ -102,7 +136,7 @@ const ClientsSaying = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h3 className='pb-1 font-Lato font-semibold text-[24px] leading-7.5 text-BlackTextColor'>Greate Service</h3>
+                        <h3 className='pb-1 font-Lato font-semibold text-[20px] sm:text-[24px] leading-7.5 text-center text-BlackTextColor'>Greate Service</h3>
                         {/* Star icon svg  */}
                         <div className='flex gap-1.25 pb-5'>
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,14 +161,14 @@ const ClientsSaying = () => {
                     </div>
                 </div>
                 <div className='px-3'>
-                    <div className='mb-10 shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-11 px-14.25 pt-11.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
+                    <div className='mb-10 w-full max-w-md mx-auto md:max-w-none shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-8 px-6 pt-8 sm:px-8 sm:pt-11.25 sm:pb-11 xl:px-14.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
                         {/* Clients Image  */}
                         <div className='pb-3.75 relative'>
-                            <img className='w-37 h-37 rounded-full' src={ClientSayingImage3} alt="" />
+                            <img className='w-28 h-28 sm:w-37 sm:h-37 rounded-full' src={ClientSayingImage3} alt="Jenny Wilson" />
                             <div className='absolute top-6 -left-3.5'>
                                 <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="21.5" cy="21.5" r="21.5" fill="#343434"/>
-                                <g clip-path="url(#clip0_4478_26)">
+                                <g clipPath="url(#clip0_4478_26)">
                                 <path d="M25.3061 21.7562C27.1012 20.8317 29.7957 21.4903 31.0727 23.1368C32.3141 24.7358 32.3489 26.8825 31.2404 28.699C29.9584 30.7999 27.5372 30.9574 25.9487 30.4739C24.0398 29.892 22.9139 28.4923 22.2621 26.7132C21.3437 24.2056 21.5662 21.7054 22.6639 19.2953C23.8912 16.5992 25.9354 14.6659 28.4713 13.2203C28.7943 13.0361 29.1364 12.8869 29.4585 12.701C29.6354 12.5984 29.7184 12.6509 29.8189 12.8043C30.1095 13.2462 30.4051 13.6847 30.7198 14.109C30.8552 14.2916 30.8269 14.3616 30.6368 14.4683C29.2227 15.2611 27.9681 16.2474 26.9858 17.5562C26.0517 18.8017 25.5095 20.2048 25.3052 21.7571L25.3061 21.7562Z" fill="white"/>
                                 <path d="M13.7271 21.751C15.7025 20.7072 19.3485 21.5576 20.2751 24.6921C20.9718 27.0489 19.5511 29.9701 17.1605 30.527C15.1304 31.0005 13.3676 30.4995 11.9693 28.9122C10.4498 27.1881 9.98648 25.1182 10.1484 22.8848C10.3933 19.5051 12.0781 16.9024 14.599 14.7757C15.5929 13.937 16.6922 13.2609 17.8622 12.6982C18.0199 12.6223 18.1013 12.6207 18.2051 12.7824C18.4974 13.2351 18.8004 13.6819 19.1234 14.1129C19.2654 14.303 19.2164 14.3664 19.0346 14.4689C17.6006 15.2717 16.3352 16.2763 15.3471 17.6076C14.4711 18.789 13.9546 20.1187 13.728 21.5676C13.7188 21.6259 13.7271 21.6859 13.7271 21.751Z" fill="white"/>
                                 </g>
@@ -146,7 +180,7 @@ const ClientsSaying = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h3 className='pb-1 font-Lato font-semibold text-[24px] leading-7.5 text-BlackTextColor'>The Best Agency!</h3>
+                        <h3 className='pb-1 font-Lato font-semibold text-[20px] sm:text-[24px] leading-7.5 text-center text-BlackTextColor'>The Best Agency!</h3>
                         {/* Star icon svg  */}
                         <div className='flex gap-1.25 pb-5'>
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,14 +205,14 @@ const ClientsSaying = () => {
                     </div>
                 </div>
                 <div className='px-3'>
-                    <div className='mb-10 shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-11 px-14.25 pt-11.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
+                    <div className='mb-10 w-full max-w-md mx-auto md:max-w-none shadow-[0px_4px_20px_1px_rgba(0,0,0,0.05)] bg-white rounded-[15px] pb-8 px-6 pt-8 sm:px-8 sm:pt-11.25 sm:pb-11 xl:px-14.25 duration-200 group flex flex-col justify-center items-center border-2 border-[#F1F1F1] '>
                         {/* Clients Image  */}
                         <div className='pb-3.75 relative'>
-                            <img className='w-37 h-37 rounded-full' src={ClientSayingImage3} alt="" />
+                            <img className='w-28 h-28 sm:w-37 sm:h-37 rounded-full' src={ClientSayingImage3} alt="Jenny Wilson" />
                             <div className='absolute top-6 -left-3.5'>
                                 <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="21.5" cy="21.5" r="21.5" fill="#343434"/>
-                                <g clip-path="url(#clip0_4478_26)">
+                                <g clipPath="url(#clip0_4478_26)">
                                 <path d="M25.3061 21.7562C27.1012 20.8317 29.7957 21.4903 31.0727 23.1368C32.3141 24.7358 32.3489 26.8825 31.2404 28.699C29.9584 30.7999 27.5372 30.9574 25.9487 30.4739C24.0398 29.892 22.9139 28.4923 22.2621 26.7132C21.3437 24.2056 21.5662 21.7054 22.6639 19.2953C23.8912 16.5992 25.9354 14.6659 28.4713 13.2203C28.7943 13.0361 29.1364 12.8869 29.4585 12.701C29.6354 12.5984 29.7184 12.6509 29.8189 12.8043C30.1095 13.2462 30.4051 13.6847 30.7198 14.109C30.8552 14.2916 30.8269 14.3616 30.6368 14.4683C29.2227 15.2611 27.9681 16.2474 26.9858 17.5562C26.0517 18.8017 25.5095 20.2048 25.3052 21.7571L25.3061 21.7562Z" fill="white"/>
                                 <path d="M13.7271 21.751C15.7025 20.7072 19.3485 21.5576 20.2751 24.6921C20.9718 27.0489 19.5511 29.9701 17.1605 30.527C15.1304 31.0005 13.3676 30.4995 11.9693 28.9122C10.4498 27.1881 9.98648 25.1182 10.1484 22.8848C10.3933 19.5051 12.0781 16.9024 14.599 14.7757C15.5929 13.937 16.6922 13.2609 17.8622 12.6982C18.0199 12.6223 18.1013 12.6207 18.2051 12.7824C18.4974 13.2351 18.8004 13.6819 19.1234 14.1129C19.2654 14.303 19.2164 14.3664 19.0346 14.4689C17.6006 15.2717 16.3352 16.2763 15.3471 17.6076C14.4711 18.789 13.9546 20.1187 13.728 21.5676C13.7188 21.6259 13.7271 21.6859 13.7271 21.751Z" fill="white"/>
                                 </g>
@@ -190,7 +224,7 @@ const ClientsSaying = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h3 className='pb-1 font-Lato font-semibold text-[24px] leading-7.5 text-BlackTextColor'>The Best Agency!</h3>
+                        <h3 className='pb-1 font-Lato font-semibold text-[20px] sm:text-[24px] leading-7.5 text-center text-BlackTextColor'>The Best Agency!</h3>
                         {/* Star icon svg  */}
                         <div className='flex gap-1.25 pb-5'>
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
