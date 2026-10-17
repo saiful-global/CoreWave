@@ -6,7 +6,7 @@ const Experience = () => {
   return (
     <>
     {/* Vertical padding shrinks on small screens: 48px (mobile) -> 64px (tablet) -> 100px (desktop, your original py-25) */}
-    <section className='py-12 sm:py-16 lg:py-25'>
+    <section id='about' className='py-12 sm:py-16 lg:py-25'>
       <Container>
         {/*
           Layout strategy:

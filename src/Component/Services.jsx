@@ -9,7 +9,7 @@ const Services = () => {
       so the radius grows with the screen: 80px -> 150px -> 250px -> 350px (1280px and up).
       Section padding also shrinks on small screens.
     */}
-    <section className='py-12 sm:py-14 xl:py-17.5 bg-BackgroundColor01 rounded-tl-[80px] rounded-br-[80px] sm:rounded-tl-[150px] sm:rounded-br-[150px] lg:rounded-tl-[250px] lg:rounded-br-[250px] xl:rounded-tl-[350px] xl:rounded-br-[350px]'>
+    <section id='services' className='py-12 sm:py-14 xl:py-17.5 bg-BackgroundColor01 rounded-tl-[80px] rounded-br-[80px] sm:rounded-tl-[150px] sm:rounded-br-[150px] lg:rounded-tl-[250px] lg:rounded-br-[250px] xl:rounded-tl-[350px] xl:rounded-br-[350px]'>
         <Container>
             {/*
               Main layout:

@@ -9,7 +9,7 @@ const Take = () => {
       so the radius grows with the screen: 80px -> 150px -> 250px -> 300px (1280px and up).
       Section padding also shrinks on small screens.
     */}
-    <section className='pt-12 pb-12 sm:pt-14 sm:pb-14 xl:pt-17.5 xl:pb-19.5 bg-BackgroundColor01 rounded-tl-[80px] rounded-br-[80px] sm:rounded-tl-[150px] sm:rounded-br-[150px] lg:rounded-tl-[250px] lg:rounded-br-[250px] xl:rounded-tl-[300px] xl:rounded-br-[300px]'>
+    <section id='take' className='pt-12 pb-12 sm:pt-14 sm:pb-14 xl:pt-17.5 xl:pb-19.5 bg-BackgroundColor01 rounded-tl-[80px] rounded-br-[80px] sm:rounded-tl-[150px] sm:rounded-br-[150px] lg:rounded-tl-[250px] lg:rounded-br-[250px] xl:rounded-tl-[300px] xl:rounded-br-[300px]'>
         <Container>
             {/*
               Main layout:

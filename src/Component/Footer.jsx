@@ -4,7 +4,7 @@ import Logo from '../assets/Logo.png'
 
 const Footer = () => {
   return (
-    <footer className='pt-12 pb-3.5 sm:pt-16 lg:pt-25'>
+    <footer id='contact' className='pt-12 pb-3.5 sm:pt-16 lg:pt-25'>
         {/* Top padding of the footer shrinks on small screens: 48px (mobile) -> 64px (tablet) -> original 100px (desktop 1024px+) */}
         <Container>
             {/*

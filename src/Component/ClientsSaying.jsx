@@ -68,7 +68,7 @@ const ClientsSaying = () => {
   return (
     <>
     {/* Bottom padding is bigger on small screens because the dots sit 46px below the slider (see appendDots) */}
-    <section className='pt-14 pb-20 sm:pt-16 lg:pt-23.5 lg:pb-25'>
+    <section id='testimonial' className='pt-14 pb-20 sm:pt-16 lg:pt-23.5 lg:pb-25'>
         <Container>
             <h2 className='pb-8 lg:pb-12 font-Lato font-semibold text-[28px] leading-9 sm:text-[38px] sm:leading-12 xl:text-[45px] xl:leading-13.5 text-BlackTextColor text-center capitalize'>What our clients saying</h2>
             <Slider {...settings}>

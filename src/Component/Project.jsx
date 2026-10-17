@@ -74,7 +74,7 @@ const Project = () => {
   return (
     <>
     {/* Section padding: 56px (mobile) -> 64px (tablet) -> your original 91px / 100px (desktop 1024px+) */}
-    <section className='pt-14 pb-14 sm:pt-16 sm:pb-16 lg:pt-22.75 lg:pb-25'>
+    <section id='portfolio' className='pt-14 pb-14 sm:pt-16 sm:pb-16 lg:pt-22.75 lg:pb-25'>
         <Container>
             {/* Heading size: 30px (mobile) -> 38px (tablet) -> 45px (desktop 1280px+) */}
             <h2 className='pb-6 lg:pb-8.25 font-Lato font-semibold text-[30px] leading-9 sm:text-[38px] sm:leading-12 xl:text-[45px] xl:leading-13.5 text-BlackTextColor text-center'>Our Latest Project</h2>
