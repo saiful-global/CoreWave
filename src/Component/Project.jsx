@@ -115,13 +115,20 @@ const Project = () => {
               Project cards:
               - Mobile (below 640px): 1 column.
               - Tablet (640px - 1023px): 2 columns.
-              - Desktop (1024px+): lg:flex with no gap, exactly your original layout.
+              - Desktop (1024px+): lg:flex with lg:gap-6 (24px) between the cards. Your first images
+                (Web Development) have a white border baked INTO the picture, which used to create the
+                space between them. New images without that border would touch each other, so the space
+                now comes from the layout (the gap) and works for every image. To get more or less space,
+                change gap-6 (for example gap-4 = 16px, gap-8 = 32px).
               The "min-w-0" on each card lets it shrink on small laptops; without it the images keep
               their natural width and push the page sideways.
+              "lg:flex-1" makes the 3 cards share the full row equally (each takes 1/3 of the space left
+              after the gaps). Without it, every card was only as wide as its own content, so the whole
+              group stayed on the left side of the row instead of spreading across the center.
               key={active}: when the category changes, React sees a different key and replaces the whole
               card list instead of reusing the old one, so images never "flash" the previous project.
             */}
-            <div key={active} className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:flex lg:gap-0'>
+            <div key={active} className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:flex lg:gap-6'>
                 {currentProjects.map((project, index) => (
                     // Third card, tablet only: with 2 columns it would sit alone on the second row at the left.
                     // sm:col-span-2 lets it use the whole row, then sm:w-[calc(50%-1rem)] gives it exactly the
@@ -129,7 +136,7 @@ const Project = () => {
                     // From lg these are reset, because the desktop layout is flex.
                     <div
                         key={project.title}
-                        className={`lg:min-w-0 ${index === 2 ? 'sm:col-span-2 sm:w-[calc(50%-1rem)] sm:mx-auto lg:w-auto lg:mx-0' : ''}`}
+                        className={`lg:min-w-0 lg:flex-1 ${index === 2 ? 'sm:col-span-2 sm:w-[calc(50%-1rem)] sm:mx-auto lg:w-auto lg:mx-0' : ''}`}
                     >
                         {project.image ? (
                             // Real image: w-full h-auto fills the card and keeps its ratio.
