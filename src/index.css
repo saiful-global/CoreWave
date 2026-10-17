@@ -7,9 +7,22 @@
   --color-Primary01: #06C279;
   --color-BackgroundColor01: #EEFFF9;
 }
-.service-item:hover .icon path {
-  fill: #fff;
+
+/*
+  Service card icon: turns white on hover (the card background turns green at the same time).
+  This rule is wrapped in "@media (hover: hover)" so it only applies on devices with a real mouse.
+  Why: Tailwind v4 already applies its own hover: classes (like the green card background)
+  ONLY on devices that support hover. But a plain CSS :hover rule has no such limit.
+  On a phone, tapping a card leaves the "hover" state stuck, so the icon turned white while the
+  card background stayed white (Tailwind skipped it) and the icon became invisible.
+  With this wrapper the icon and the background always change together.
+*/
+@media (hover: hover) {
+  .service-item:hover .icon path {
+    fill: #fff;
+  }
 }
+
 .slick-dots li.slick-active div {
     background-color: #06C279;  /* brand color */
 }
