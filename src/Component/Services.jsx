@@ -18,15 +18,20 @@ const Services = () => {
               - From 1280px (xl): flex-row, your original layout (cards left, text right).
               The cards need about 664px + the text about 550px, so they only fit side by side from
               1280px. That is why the switch happens at xl and not at lg.
+              xl:gap-12 keeps at least 48px of free space between the cards and the text. On screens
+              just above 1280px (for example a 1920px monitor with 125% Windows scaling) there is almost
+              no spare room, and without this gap the two blocks touched each other.
+              When the room is too small for 48px, the TEXT block gets narrower (its lines wrap earlier),
+              while the cards keep their size (see xl:shrink-0 below), so nothing goes outside the screen.
             */}
-            <div className='flex flex-col-reverse xl:flex-row gap-12 xl:gap-0 justify-between xl:items-center'>
+            <div className='flex flex-col-reverse xl:flex-row gap-12 justify-between xl:items-center'>
                 {/*
                   Cards wrapper:
                   - Mobile (below 640px): grid with 1 column, cards stacked.
                   - Tablet / laptop (640px - 1279px): grid with 2 columns.
                   - Desktop (1280px+): back to flex with your original two staggered columns.
                 */}
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 xl:flex xl:gap-10'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 xl:flex xl:gap-10 xl:shrink-0'>
                     {/*
                       "contents" makes this column wrapper disappear from the layout on small screens,
                       so its cards become direct grid items (4 equal cards in a clean grid).
